@@ -33,6 +33,8 @@ dependencies {
     jooqCodegen 'org.postgresql:postgresql'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // JUnit 5 のエンジンを明示的に指定（Gradle 9系の互換性のため）
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
@@ -77,4 +79,9 @@ sourceSets {
             srcDir 'build/generated/jooq'
         }
     }
+}
+
+test {
+    // JUnit 5 (JUnit Platform) を使用することを明示
+    useJUnitPlatform()
 }
