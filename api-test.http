@@ -1,0 +1,11 @@
+### 1. 著者を登録する (太宰治)
+POST http://localhost:8080/authors
+Content-Type: application/json
+
+{
+  "name": "太宰治",
+  "birthDate": "1909-06-19"
+}
+
+### 2. 著者の一覧を取得する
+GET http://localhost:8080/authors
