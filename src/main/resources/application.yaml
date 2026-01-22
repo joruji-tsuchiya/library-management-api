@@ -1,3 +1,19 @@
 spring:
   application:
     name: library-management-api
+  datasource:
+    # Dockerで立ち上げたPostgreSQLへの接続情報
+    url: jdbc:postgresql://localhost:5432/library_db
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  flyway:
+    # 起動時に自動で db/migration 以下のSQLを実行する設定
+    enabled: true
+    locations: classpath:db/migration
+
+logging:
+  level:
+    # SQLの実行ログを確認するためにDEBUGに設定
+    org.jooq: DEBUG
